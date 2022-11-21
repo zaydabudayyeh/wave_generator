@@ -17,5 +17,5 @@ def file_gen(data, name, N, sample_depth):
 		file.write("always_ff @(posedge clk) begin\n")
 		file.write("	q <= rom[addr];\n")
 		file.write("end\n")
-		file.write(f"initial begin $readmemh(\"{name}.txt\", rom) end\n")
+		file.write(f"initial begin $readmemh(\"{name}.txt\", rom); end\n")
 		file.write("endmodule")

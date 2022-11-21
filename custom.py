@@ -10,7 +10,7 @@ def custom(filename, sample_depth):
 	data = list(map(lambda x : x/max_, data))	
 	if len(data) > samplerate:	
 		print(f"{filename} is pretty long!")
-		cont = input("Remember that long audio clips (greater than a couple seconds) will not fit on on-chip memory! Would you like to proceed anyway (y/n): ")		
+		cont = input("Remember that long audio clips (greater than a couple seconds) will not fit on on-chip memory!\nWould you like to proceed anyway (y/n): ")		
 		if cont != 'y':
 			return
 	min_ = min(data)
