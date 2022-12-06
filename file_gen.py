@@ -7,7 +7,10 @@ def file_gen(data, name, N, sample_depth):
 	plt.savefig(f"output_files/{name}.png")
 	with open(f'output_files/{name}.txt', 'w') as file:
 		for i in data:
-			file.write(hex(i).replace('0x', ''))
+			if (i < 0):	
+				file.write(hex(i % (1<<(8*sample_depth))).replace('0x', ''))
+			else:
+				file.write(hex(i).replace('0x', ''))
 			file.write("\n")
 
 	with open(f'output_files/{name}.sv', 'w') as file:
