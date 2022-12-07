@@ -44,7 +44,7 @@ if x == 3 or x == 4:
 
 if x == 5:
 	for filename in os.listdir("input_files"):	
-		if (not filename.find(".wav")):
+		if (".wav" not in filename):
 			continue
 		data = custom(filename, sample_depth)
 		if len(data) < 1:

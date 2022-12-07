@@ -6,6 +6,7 @@ def custom(filename, sample_depth):
 	print(f"Generating waveform for {filename}...")
 	scale = 2**(sample_depth*8-1)
 	samplerate, data = wavfile.read(f'input_files/{filename}')
+	print(data)
 	max_ = max(data)
 	data = list(map(lambda x : x/max_, data))	
 	if len(data) > samplerate:	
