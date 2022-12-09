@@ -6,6 +6,11 @@ def custom(filename, sample_depth):
 	print(f"Generating waveform for {filename}...")
 	scale = 2**(sample_depth*8-1)
 	samplerate, data = wavfile.read(f'input_files/{filename}')
+	if isinstance(data[0], np.ndarray):
+		data = list(map(lambda x:int(sum(x)//len(x)), data))
+	if not isinstance(data[0], (int, np.int32)):
+		print("Something is wrong with your wav file! please make sure it is encoded in linearPCM format and that you have cleared the metadata tags")
+		return
 	max_ = max(data)
 	data = list(map(lambda x : x/max_, data))	
 	if len(data) > samplerate:	
