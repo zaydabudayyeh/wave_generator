@@ -24,7 +24,7 @@ Generates audio waveforms in digital format for use with FPGA audio systems.
     
 4) Select the waveform types you wish to generate (Sine, Square, Sawtooth, or your very own .wav file!) by selecting the corresponding number.
 
-      _note: If you use your own .wav file, it must be in a linearPCM format, and all metadata must be removed. Use audacity and export the audio file as a wav, selecting 16-bit signed PCM (or higher) for the sample depth, and clear the metadata tags._
+      _note: If you use your own .wav file, it must be in a linearPCM, mono format, and all metadata must be removed. Use audacity and export the audio file as a wav, selecting 16-bit signed PCM (or higher) for the sample depth, and clear the metadata tags._
         
 5) The script will generate the necessary .txt files and .sv files to initialize a ROM using on-chip memory.
 
