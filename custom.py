@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 def custom(filename, sample_depth):
 	print(f"Generating waveform for {filename}...")
-	scale = 2**(sample_depth*8-1)
+	scale = 2**(sample_depth*8-1)-1
 	samplerate, data = wavfile.read(f'input_files/{filename}')
 	if isinstance(data[0], np.ndarray):
 		data = list(map(lambda x:int(sum(x)//len(x)), data))
