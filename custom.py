@@ -11,7 +11,7 @@ def custom(filename, sample_depth):
 	if not isinstance(data[0], (int, np.int32)):
 		print("Something is wrong with your wav file! please make sure it is encoded in linearPCM format and that you have cleared the metadata tags")
 		return
-	max_ = max(data)
+	max_ = max(max(data), abs(min(data)))
 	data = list(map(lambda x : x/max_, data))	
 	if len(data) > samplerate:	
 		print(f"{filename} is pretty long!")
@@ -19,7 +19,7 @@ def custom(filename, sample_depth):
 		if cont != 'y':
 			return
 	min_ = min(data)
-	max_ = max(data)
+	max_ = max(max(data), abs(min_))
 	wave_table = np.array(list(map(lambda i:((i-min_)/max_*scale-scale), data)))
 	wave_table = wave_table.astype(int)
 	return wave_table

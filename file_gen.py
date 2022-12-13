@@ -4,6 +4,8 @@ import numpy as np
 def file_gen(data, name, N, sample_depth):	
 	plt.figure()
 	plt.plot(data)
+	plt.axhline(y =2**(8*sample_depth-1))
+	plt.axhline(y =-1*2**(8*sample_depth-1))
 	plt.savefig(f"output_files/{name}.png")
 	with open(f'output_files/{name}.txt', 'w') as file:
 		for i in data:
